@@ -20,6 +20,7 @@ jobs:
 
     - name: Build holistic_tracking_gpu with Metal
       run: |
+        echo "7.1.2" > .bazelversion
         bazel clean --expunge
         bazel build -c opt \
           --enable_workspace=true \
