@@ -27,8 +27,8 @@ jobs:
           --copt=-DMEDIAPIPE_GPU_USE_METAL \
           mediapipe/examples/desktop/holistic_tracking:holistic_tracking_gpu
 
-    - name: Upload binary
-      uses: actions/upload-artifact@v3.1.3
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
       with:
         name: holistic_tracking_gpu
         path: bazel-bin/mediapipe/examples/desktop/holistic_tracking/holistic_tracking_gpu
