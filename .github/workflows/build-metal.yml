@@ -22,6 +22,7 @@ jobs:
       run: |
         bazel clean --expunge
         bazel build -c opt \
+          --enable_bzlmod=false \
           --define MEDIAPIPE_DISABLE_GPU=0 \
           --copt=-DMEDIAPIPE_METAL_ENABLED \
           --copt=-DMEDIAPIPE_GPU_USE_METAL \
