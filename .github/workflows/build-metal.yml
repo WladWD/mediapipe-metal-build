@@ -23,6 +23,7 @@ jobs:
         bazel clean --expunge
         bazel build -c opt \
           --enable_workspace=true \
+          --repo_env=HERMETIC_PYTHON_VERSION=3.12 \
           --define MEDIAPIPE_DISABLE_GPU=0 \
           --copt=-DMEDIAPIPE_METAL_ENABLED \
           --copt=-DMEDIAPIPE_GPU_USE_METAL \
