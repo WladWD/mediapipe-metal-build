@@ -28,7 +28,7 @@ jobs:
           mediapipe/examples/desktop/holistic_tracking:holistic_tracking_gpu
 
     - name: Upload binary
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: holistic_tracking_gpu
         path: bazel-bin/mediapipe/examples/desktop/holistic_tracking/holistic_tracking_gpu
