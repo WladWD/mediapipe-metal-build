@@ -1,0 +1,34 @@
+name: Build MediaPipe on macOS with Metal
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows you to manually trigger from the Actions tab
+
+jobs:
+  build:
+    runs-on: macos-13
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install bazel protobuf cmake ffmpeg
+
+    - name: Build holistic_tracking_gpu with Metal
+      run: |
+        bazel clean --expunge
+        bazel build -c opt \
+          --define MEDIAPIPE_DISABLE_GPU=0 \
+          --copt=-DMEDIAPIPE_METAL_ENABLED \
+          --copt=-DMEDIAPIPE_GPU_USE_METAL \
+          mediapipe/examples/desktop/holistic_tracking:holistic_tracking_gpu
+
+    - name: Upload binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: holistic_tracking_gpu
+        path: bazel-bin/mediapipe/examples/desktop/holistic_tracking/holistic_tracking_gpu
