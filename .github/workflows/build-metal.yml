@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         brew update
-        brew install bazel protobuf cmake ffmpeg
+        brew install bazelisk protobuf cmake ffmpeg
 
     - name: Build holistic_tracking_gpu with Metal
       run: |
