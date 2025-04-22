@@ -3,4 +3,3 @@ build --repo_env=HERMETIC_PYTHON_VERSION=3.12
 build --experimental_repo_remote_exec
 build --python_path=/usr/bin/python3
 build --force_python=py3
-build --noincompatible_py2_outputs
