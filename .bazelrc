@@ -1,0 +1,6 @@
+build --enable_workspace=true
+build --repo_env=HERMETIC_PYTHON_VERSION=3.12
+build --experimental_repo_remote_exec
+build --python_path=/usr/bin/python3
+build --force_python=py3
+build --extra_toolchains=@rules_python//python:py_runtime_pair_toolchain
